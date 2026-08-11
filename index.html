@@ -1,83 +1,290 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ReelCraft - Instagram Creator Tools</title>
-<meta name="description" content="Free Instagram caption, hashtag and creator tools by ReelCraft.">
+<title>ReelCraft - AI Caption & Hashtag Generator</title>
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial, sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
 }
 
 body{
-    background:#f8f8fc;
-    color:#151525;
+  background:#f6f7fb;
+  color:#171717;
 }
 
 header{
-    background:white;
-    padding:15px 6%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    box-shadow:0 2px 10px rgba(0,0,0,.06);
-    position:sticky;
-    top:0;
-    z-index:10;
+  background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+  color:white;
+  padding:35px 20px;
+  text-align:center;
 }
 
-.logo{
-    font-size:25px;
-    font-weight:800;
-    background:linear-gradient(90deg,#ff2d75,#8b3dff,#00a8ff);
-    -webkit-background-clip:text;
-    color:transparent;
+header h1{
+  font-size:32px;
+  margin-bottom:8px;
 }
 
-nav a{
-    text-decoration:none;
-    color:#333;
-    margin-left:18px;
-    font-size:14px;
+header p{
+  font-size:16px;
+  opacity:.95;
 }
 
-.hero{
-    text-align:center;
-    padding:70px 20px 45px;
-    background:linear-gradient(135deg,#fff,#f4edff);
+.container{
+  max-width:700px;
+  margin:30px auto;
+  padding:0 18px;
 }
 
-.badge{
-    display:inline-block;
-    background:#eee5ff;
-    color:#713cff;
-    padding:8px 15px;
-    border-radius:30px;
-    font-size:13px;
-    font-weight:bold;
-    margin-bottom:18px;
+.card{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 5px 25px rgba(0,0,0,.08);
 }
 
-.hero h1{
-    font-size:42px;
-    max-width:750px;
-    margin:auto;
-    line-height:1.15;
+label{
+  display:block;
+  font-weight:bold;
+  margin:18px 0 8px;
 }
 
-.gradient{
-    background:linear-gradient(90deg,#ff2d75,#8b3dff,#00a8ff);
-    -webkit-background-clip:text;
-    color:transparent;
+textarea,
+select,
+input{
+  width:100%;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:16px;
+  outline:none;
 }
 
-.hero p{
-    color:#666;
-    margin:
+textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+button{
+  width:100%;
+  border:0;
+  padding:15px;
+  margin-top:22px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#833ab4,#fd1d1d);
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:active{
+  transform:scale(.98);
+}
+
+.result{
+  margin-top:25px;
+  display:none;
+}
+
+.result-box{
+  background:#f8f8fb;
+  border:1px solid #eee;
+  padding:18px;
+  border-radius:14px;
+  margin-top:12px;
+  line-height:1.6;
+}
+
+.copy{
+  background:#222;
+  margin-top:10px;
+  font-size:14px;
+  padding:11px;
+}
+
+footer{
+  text-align:center;
+  padding:30px 15px;
+  color:#777;
+  font-size:13px;
+}
+
+.loading{
+  display:none;
+  text-align:center;
+  margin-top:20px;
+  color:#833ab4;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>✨ ReelCraft</h1>
+  <p>Instagram Caption & Hashtag Generator</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Create Your Reel Content 🚀</h2>
+
+<label>What is your Reel about?</label>
+
+<textarea id="topic"
+placeholder="Example: My village sunset, travel, gym, photography, bike ride..."></textarea>
+
+<label>Content Type</label>
+
+<select id="type">
+  <option value="travel">Travel</option>
+  <option value="photography">Photography</option>
+  <option value="fitness">Fitness</option>
+  <option value="lifestyle">Lifestyle</option>
+  <option value="love">Love</option>
+  <option value="motivation">Motivation</option>
+  <option value="business">Business</option>
+  <option value="general">General</option>
+</select>
+
+<label>Caption Style</label>
+
+<select id="style">
+  <option value="short">Short & Cool</option>
+  <option value="professional">Professional</option>
+  <option value="emotional">Emotional</option>
+  <option value="viral">Viral Style</option>
+</select>
+
+<button onclick="generateContent()">
+  ✨ Generate Caption & Hashtags
+</button>
+
+<div class="loading" id="loading">
+  Creating your content...
+</div>
+
+<div class="result" id="result">
+
+  <h3>📝 Caption</h3>
+
+  <div class="result-box" id="caption"></div>
+
+  <button class="copy" onclick="copyCaption()">
+    📋 Copy Caption
+  </button>
+
+  <h3 style="margin-top:25px;">#️⃣ Hashtags</h3>
+
+  <div class="result-box" id="hashtags"></div>
+
+  <button class="copy" onclick="copyHashtags()">
+    📋 Copy Hashtags
+  </button>
+
+</div>
+
+</div>
+</div>
+
+<footer>
+  © 2026 ReelCraft • Made for Instagram Creators
+</footer>
+
+<script>
+
+function generateContent(){
+
+  const topic =
+    document.getElementById("topic").value.trim();
+
+  const type =
+    document.getElementById("type").value;
+
+  const style =
+    document.getElementById("style").value;
+
+  if(!topic){
+    alert("Please enter what your Reel is about.");
+    return;
+  }
+
+  document.getElementById("loading").style.display="block";
+  document.getElementById("result").style.display="none";
+
+  setTimeout(function(){
+
+    let caption="";
+
+    if(style==="short"){
+      caption =
+      "Just vibes, good moments & "+topic+" ✨📸";
+    }
+
+    else if(style==="professional"){
+      caption =
+      "Capturing the beauty of "+topic+
+      ". Every moment tells a story. ✨";
+    }
+
+    else if(style==="emotional"){
+      caption =
+      "Some moments are more than memories... "+
+      topic+" ❤️✨";
+    }
+
+    else{
+      caption =
+      "POV: You found the perfect moment — "+
+      topic+" 🔥✨";
+    }
+
+    const hashtags =
+      "#reels #instagramreels #viralreels #trending "+
+      "#explorepage #reelitfeelit #instagood #creator "+
+      "#contentcreator #viral #trendingreels "+
+      "#"+type+" #reelcraft";
+
+    document.getElementById("caption").innerText=caption;
+    document.getElementById("hashtags").innerText=hashtags;
+
+    document.getElementById("loading").style.display="none";
+    document.getElementById("result").style.display="block";
+
+  },700);
+}
+
+
+function copyCaption(){
+
+  const text=document.getElementById("caption").innerText;
+
+  navigator.clipboard.writeText(text);
+
+  alert("Caption copied! ✅");
+}
+
+
+function copyHashtags(){
+
+  const text=document.getElementById("hashtags").innerText;
+
+  navigator.clipboard.writeText(text);
+
+  alert("Hashtags copied! ✅");
+}
+
+</script>
+
+</body>
+</html>
