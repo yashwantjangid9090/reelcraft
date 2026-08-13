@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ReelCraft - AI Caption & Hashtag Generator</title>
+<meta name="theme-color" content="#0f172a">
+<title>Worker Hisab</title>
 
 <style>
 *{
@@ -15,113 +15,269 @@
 }
 
 body{
-  background:#f6f7fb;
-  color:#171717;
+  background:#f1f5f9;
+  color:#0f172a;
+  padding-bottom:80px;
 }
 
 header{
-  background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+  background:#0f172a;
   color:white;
-  padding:35px 20px;
-  text-align:center;
+  padding:22px 18px 28px;
+  border-radius:0 0 25px 25px;
 }
 
-header h1{
-  font-size:32px;
-  margin-bottom:8px;
+.logo{
+  font-size:25px;
+  font-weight:800;
 }
 
-header p{
-  font-size:16px;
-  opacity:.95;
+.subtitle{
+  color:#cbd5e1;
+  margin-top:5px;
+  font-size:14px;
 }
 
 .container{
-  max-width:700px;
-  margin:30px auto;
-  padding:0 18px;
+  padding:18px;
+  max-width:600px;
+  margin:auto;
 }
 
 .card{
   background:white;
-  padding:25px;
   border-radius:18px;
-  box-shadow:0 5px 25px rgba(0,0,0,.08);
+  padding:18px;
+  margin-bottom:15px;
+  box-shadow:0 3px 15px rgba(15,23,42,.07);
 }
 
-label{
+.welcome{
+  margin-top:-5px;
+}
+
+.welcome h2{
+  font-size:21px;
+  margin-bottom:5px;
+}
+
+.welcome p{
+  color:#64748b;
+  font-size:14px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.stat{
+  background:#f8fafc;
+  border-radius:15px;
+  padding:15px;
+}
+
+.stat .icon{
+  font-size:22px;
+}
+
+.stat small{
   display:block;
-  font-weight:bold;
-  margin:18px 0 8px;
+  color:#64748b;
+  margin-top:5px;
 }
 
-textarea,
-select,
-input{
-  width:100%;
-  padding:14px;
-  border:1px solid #ddd;
-  border-radius:12px;
-  font-size:16px;
-  outline:none;
+.stat strong{
+  display:block;
+  font-size:20px;
+  margin-top:4px;
 }
 
-textarea{
-  min-height:130px;
-  resize:vertical;
+.salary-card{
+  background:#0f172a;
+  color:white;
+}
+
+.salary-card small{
+  color:#cbd5e1;
+}
+
+.salary{
+  font-size:32px;
+  font-weight:800;
+  margin-top:7px;
 }
 
 button{
-  width:100%;
   border:0;
-  padding:15px;
-  margin-top:22px;
-  border-radius:12px;
-  background:linear-gradient(135deg,#833ab4,#fd1d1d);
-  color:white;
-  font-size:17px;
-  font-weight:bold;
   cursor:pointer;
 }
 
-button:active{
-  transform:scale(.98);
-}
-
-.result{
-  margin-top:25px;
-  display:none;
-}
-
-.result-box{
-  background:#f8f8fb;
-  border:1px solid #eee;
-  padding:18px;
-  border-radius:14px;
-  margin-top:12px;
-  line-height:1.6;
-}
-
-.copy{
-  background:#222;
-  margin-top:10px;
-  font-size:14px;
-  padding:11px;
-}
-
-footer{
-  text-align:center;
-  padding:30px 15px;
-  color:#777;
-  font-size:13px;
-}
-
-.loading{
-  display:none;
-  text-align:center;
-  margin-top:20px;
-  color:#833ab4;
+.primary{
+  width:100%;
+  background:#0284c7;
+  color:white;
+  padding:15px;
+  border-radius:13px;
+  font-size:16px;
   font-weight:bold;
+  margin-top:10px;
+}
+
+.secondary{
+  width:100%;
+  background:#e0f2fe;
+  color:#0369a1;
+  padding:13px;
+  border-radius:12px;
+  font-size:15px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+input,select{
+  width:100%;
+  padding:14px;
+  border:1px solid #cbd5e1;
+  border-radius:12px;
+  margin-top:7px;
+  margin-bottom:14px;
+  font-size:15px;
+  outline:none;
+}
+
+label{
+  font-size:13px;
+  font-weight:bold;
+  color:#475569;
+}
+
+.attendance-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+}
+
+.att-btn{
+  padding:13px 5px;
+  border-radius:12px;
+  background:#f1f5f9;
+  color:#334155;
+  font-weight:bold;
+}
+
+.att-btn.active{
+  background:#0284c7;
+  color:white;
+}
+
+.history-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:13px 0;
+  border-bottom:1px solid #e2e8f0;
+}
+
+.history-item:last-child{
+  border-bottom:0;
+}
+
+.date{
+  font-weight:bold;
+}
+
+.present{
+  color:#16a34a;
+}
+
+.half{
+  color:#d97706;
+}
+
+.absent{
+  color:#dc2626;
+}
+
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  height:68px;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  box-shadow:0 -3px 15px rgba(0,0,0,.1);
+  z-index:10;
+}
+
+.nav button{
+  background:none;
+  color:#64748b;
+  font-size:11px;
+  text-align:center;
+}
+
+.nav button span{
+  display:block;
+  font-size:23px;
+  margin-bottom:2px;
+}
+
+.nav button.active{
+  color:#0284c7;
+  font-weight:bold;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+.empty{
+  text-align:center;
+  color:#64748b;
+  padding:20px 5px;
+}
+
+.profile-row{
+  display:flex;
+  justify-content:space-between;
+  padding:13px 0;
+  border-bottom:1px solid #e2e8f0;
+}
+
+.profile-row:last-child{
+  border-bottom:0;
+}
+
+.profile-row span{
+  color:#64748b;
+}
+
+.notice{
+  background:#fef3c7;
+  color:#92400e;
+  padding:12px;
+  border-radius:12px;
+  font-size:13px;
+  margin-bottom:15px;
+}
+
+.month-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.month-title h3{
+  font-size:18px;
 }
 </style>
 </head>
@@ -129,162 +285,537 @@ footer{
 <body>
 
 <header>
-  <h1>✨ ReelCraft</h1>
-  <p>Instagram Caption & Hashtag Generator</p>
+  <div class="logo">💼 Worker Hisab</div>
+  <div class="subtitle">Attendance • Rate • Salary</div>
 </header>
 
 <div class="container">
 
-<div class="card">
+<!-- HOME -->
+<section id="home" class="page active">
 
-<h2>Create Your Reel Content 🚀</h2>
+  <div class="card welcome">
+    <h2>👋 Namaste, <span id="homeName">Worker</span></h2>
+    <p id="homeCompany">Apni attendance aur salary ka hisab rakhein</p>
+  </div>
 
-<label>What is your Reel about?</label>
+  <div class="card">
+    <div class="stats">
 
-<textarea id="topic"
-placeholder="Example: My village sunset, travel, gym, photography, bike ride..."></textarea>
+      <div class="stat">
+        <div class="icon">🏢</div>
+        <small>Company</small>
+        <strong id="companyDisplay">-</strong>
+      </div>
 
-<label>Content Type</label>
+      <div class="stat">
+        <div class="icon">💰</div>
+        <small>Daily Rate</small>
+        <strong id="rateDisplay">₹0</strong>
+      </div>
 
-<select id="type">
-  <option value="travel">Travel</option>
-  <option value="photography">Photography</option>
-  <option value="fitness">Fitness</option>
-  <option value="lifestyle">Lifestyle</option>
-  <option value="love">Love</option>
-  <option value="motivation">Motivation</option>
-  <option value="business">Business</option>
-  <option value="general">General</option>
-</select>
+      <div class="stat">
+        <div class="icon">📅</div>
+        <small>This Month</small>
+        <strong id="daysDisplay">0</strong>
+      </div>
 
-<label>Caption Style</label>
+      <div class="stat">
+        <div class="icon">⏱️</div>
+        <small>Half Days</small>
+        <strong id="halfDisplay">0</strong>
+      </div>
 
-<select id="style">
-  <option value="short">Short & Cool</option>
-  <option value="professional">Professional</option>
-  <option value="emotional">Emotional</option>
-  <option value="viral">Viral Style</option>
-</select>
+    </div>
+  </div>
 
-<button onclick="generateContent()">
-  ✨ Generate Caption & Hashtags
-</button>
+  <div class="card salary-card">
+    <small>इस महीने की अनुमानित Salary</small>
+    <div class="salary" id="salaryDisplay">₹0</div>
+    <small id="salaryDays">0 attendance days</small>
+  </div>
 
-<div class="loading" id="loading">
-  Creating your content...
-</div>
-
-<div class="result" id="result">
-
-  <h3>📝 Caption</h3>
-
-  <div class="result-box" id="caption"></div>
-
-  <button class="copy" onclick="copyCaption()">
-    📋 Copy Caption
+  <button class="primary" onclick="showPage('attendance')">
+    ➕ आज की Attendance भरें
   </button>
 
-  <h3 style="margin-top:25px;">#️⃣ Hashtags</h3>
+  <button class="secondary" onclick="showPage('salary')">
+    💰 Salary देखें
+  </button>
 
-  <div class="result-box" id="hashtags"></div>
+</section>
 
-  <button class="copy" onclick="copyHashtags()">
-    📋 Copy Hashtags
+
+<!-- ATTENDANCE -->
+<section id="attendance" class="page">
+
+  <div class="card">
+
+    <div class="month-title">
+      <h3>📅 Daily Attendance</h3>
+      <span id="todayText"></span>
+    </div>
+
+    <br>
+
+    <label>Date</label>
+    <input type="date" id="attendanceDate">
+
+    <label>Attendance</label>
+
+    <div class="attendance-buttons">
+      <button class="att-btn" id="presentBtn"
+        onclick="selectAttendance('Present')">✅ Present</button>
+
+      <button class="att-btn" id="halfBtn"
+        onclick="selectAttendance('Half Day')">🕐 Half Day</button>
+
+      <button class="att-btn" id="absentBtn"
+        onclick="selectAttendance('Absent')">❌ Absent</button>
+    </div>
+
+    <button class="primary" onclick="saveAttendance()">
+      💾 Attendance Save करें
+    </button>
+
+  </div>
+
+  <div class="card">
+    <h3>आज का Rate</h3>
+    <div style="font-size:28px;font-weight:bold;margin-top:8px"
+         id="attendanceRate">₹0</div>
+  </div>
+
+</section>
+
+
+<!-- SALARY -->
+<section id="salary" class="page">
+
+  <div class="card">
+
+    <h3>💰 Salary Calculator</h3>
+
+    <br>
+
+    <label>Daily Rate</label>
+    <input type="number" id="salaryRate" placeholder="जैसे 700">
+
+    <div class="stats">
+
+      <div class="stat">
+        <small>Present</small>
+        <strong id="salaryPresent">0</strong>
+      </div>
+
+      <div class="stat">
+        <small>Half Day</small>
+        <strong id="salaryHalf">0</strong>
+      </div>
+
+      <div class="stat">
+        <small>Absent</small>
+        <strong id="salaryAbsent">0</strong>
+      </div>
+
+      <div class="stat">
+        <small>Total Days</small>
+        <strong id="salaryTotal">0</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="card salary-card">
+
+    <small>Estimated Monthly Salary</small>
+
+    <div class="salary" id="salaryPageTotal">
+      ₹0
+    </div>
+
+    <small>
+      Present + Half Day के हिसाब से
+    </small>
+
+  </div>
+
+</section>
+
+
+<!-- HISTORY -->
+<section id="history" class="page">
+
+  <div class="card">
+
+    <div class="month-title">
+      <h3>📊 Attendance History</h3>
+    </div>
+
+    <div id="historyList"></div>
+
+  </div>
+
+</section>
+
+
+<!-- PROFILE -->
+<section id="profile" class="page">
+
+  <div class="card">
+
+    <h3>👤 My Profile</h3>
+
+    <br>
+
+    <label>आपका नाम</label>
+    <input type="text" id="workerName" placeholder="अपना नाम लिखें">
+
+    <label>Company का नाम</label>
+    <input type="text" id="workerCompany" placeholder="Company का नाम">
+
+    <label>Daily Rate (₹)</label>
+    <input type="number" id="workerRate" placeholder="जैसे 700">
+
+    <label>Joining Date</label>
+    <input type="date" id="joiningDate">
+
+    <button class="primary" onclick="saveProfile()">
+      💾 Profile Save करें
+    </button>
+
+  </div>
+
+  <div class="card">
+
+    <div class="profile-row">
+      <span>Name</span>
+      <strong id="profileName">-</strong>
+    </div>
+
+    <div class="profile-row">
+      <span>Company</span>
+      <strong id="profileCompany">-</strong>
+    </div>
+
+    <div class="profile-row">
+      <span>Daily Rate</span>
+      <strong id="profileRate">₹0</strong>
+    </div>
+
+  </div>
+
+  <div class="notice">
+    💡 आपका data अभी इसी मोबाइल के browser में save होता है।
+    अगली version में हम free online database जोड़ेंगे।
+  </div>
+
+</section>
+
+</div>
+
+
+<!-- BOTTOM NAV -->
+<div class="nav">
+
+  <button class="active" onclick="showPage('home',this)">
+    <span>🏠</span>Home
+  </button>
+
+  <button onclick="showPage('attendance',this)">
+    <span>📅</span>Attendance
+  </button>
+
+  <button onclick="showPage('salary',this)">
+    <span>💰</span>Salary
+  </button>
+
+  <button onclick="showPage('history',this)">
+    <span>📊</span>History
+  </button>
+
+  <button onclick="showPage('profile',this)">
+    <span>👤</span>Profile
   </button>
 
 </div>
 
-</div>
-</div>
-
-<footer>
-  © 2026 ReelCraft • Made for Instagram Creators
-</footer>
 
 <script>
 
-function generateContent(){
+let profile = JSON.parse(localStorage.getItem("workerProfile")) || {
+  name:"",
+  company:"",
+  rate:0,
+  joining:""
+};
 
-  const topic =
-    document.getElementById("topic").value.trim();
+let attendance =
+  JSON.parse(localStorage.getItem("workerAttendance")) || [];
 
-  const type =
-    document.getElementById("type").value;
+let selectedAttendance = "Present";
 
-  const style =
-    document.getElementById("style").value;
 
-  if(!topic){
-    alert("Please enter what your Reel is about.");
+function saveData(){
+
+  localStorage.setItem(
+    "workerProfile",
+    JSON.stringify(profile)
+  );
+
+  localStorage.setItem(
+    "workerAttendance",
+    JSON.stringify(attendance)
+  );
+
+}
+
+
+function showPage(page,button){
+
+  document.querySelectorAll(".page")
+    .forEach(p=>p.classList.remove("active"));
+
+  document.getElementById(page)
+    .classList.add("active");
+
+  document.querySelectorAll(".nav button")
+    .forEach(b=>b.classList.remove("active"));
+
+  if(button){
+    button.classList.add("active");
+  }
+
+  updateUI();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+
+function selectAttendance(type){
+
+  selectedAttendance = type;
+
+  document.querySelectorAll(".att-btn")
+    .forEach(b=>b.classList.remove("active"));
+
+  if(type==="Present")
+    document.getElementById("presentBtn").classList.add("active");
+
+  if(type==="Half Day")
+    document.getElementById("halfBtn").classList.add("active");
+
+  if(type==="Absent")
+    document.getElementById("absentBtn").classList.add("active");
+
+}
+
+
+function saveAttendance(){
+
+  const date =
+    document.getElementById("attendanceDate").value;
+
+  if(!date){
+    alert("कृपया date select करें");
     return;
   }
 
-  document.getElementById("loading").style.display="block";
-  document.getElementById("result").style.display="none";
+  const existing =
+    attendance.find(a=>a.date===date);
 
-  setTimeout(function(){
+  if(existing){
 
-    let caption="";
+    existing.status = selectedAttendance;
 
-    if(style==="short"){
-      caption =
-      "Just vibes, good moments & "+topic+" ✨📸";
-    }
+  }else{
 
-    else if(style==="professional"){
-      caption =
-      "Capturing the beauty of "+topic+
-      ". Every moment tells a story. ✨";
-    }
+    attendance.push({
+      date:date,
+      status:selectedAttendance
+    });
 
-    else if(style==="emotional"){
-      caption =
-      "Some moments are more than memories... "+
-      topic+" ❤️✨";
-    }
+  }
 
-    else{
-      caption =
-      "POV: You found the perfect moment — "+
-      topic+" 🔥✨";
-    }
+  attendance.sort(
+    (a,b)=>b.date.localeCompare(a.date)
+  );
 
-    const hashtags =
-      "#reels #instagramreels #viralreels #trending "+
-      "#explorepage #reelitfeelit #instagood #creator "+
-      "#contentcreator #viral #trendingreels "+
-      "#"+type+" #reelcraft";
+  saveData();
 
-    document.getElementById("caption").innerText=caption;
-    document.getElementById("hashtags").innerText=hashtags;
+  alert("✅ Attendance save हो गई!");
 
-    document.getElementById("loading").style.display="none";
-    document.getElementById("result").style.display="block";
+  updateUI();
 
-  },700);
 }
 
 
-function copyCaption(){
+function saveProfile(){
 
-  const text=document.getElementById("caption").innerText;
+  profile.name =
+    document.getElementById("workerName").value.trim();
 
-  navigator.clipboard.writeText(text);
+  profile.company =
+    document.getElementById("workerCompany").value.trim();
 
-  alert("Caption copied! ✅");
+  profile.rate =
+    Number(document.getElementById("workerRate").value) || 0;
+
+  profile.joining =
+    document.getElementById("joiningDate").value;
+
+  saveData();
+
+  alert("✅ Profile save हो गई!");
+
+  updateUI();
+
 }
 
 
-function copyHashtags(){
+function currentMonthData(){
 
-  const text=document.getElementById("hashtags").innerText;
+  const now = new Date();
 
-  navigator.clipboard.writeText(text);
+  const month =
+    now.getFullYear()+"-"+
+    String(now.getMonth()+1).padStart(2,"0");
 
-  alert("Hashtags copied! ✅");
+  return attendance.filter(a =>
+    a.date.startsWith(month)
+  );
+
 }
 
-</script>
 
-</body>
-</html>
+function calculateSalary(){
+
+  const data = currentMonthData();
+
+  const present =
+    data.filter(a=>a.status==="Present").length;
+
+  const half =
+    data.filter(a=>a.status==="Half Day").length;
+
+  const absent =
+    data.filter(a=>a.status==="Absent").length;
+
+  const totalDays =
+    present + half * 0.5;
+
+  const salary =
+    totalDays * Number(profile.rate || 0);
+
+  return {
+    present,
+    half,
+    absent,
+    totalDays,
+    salary
+  };
+
+}
+
+
+function formatMoney(amount){
+
+  return "₹" +
+    Number(amount).toLocaleString("en-IN");
+
+}
+
+
+function updateUI(){
+
+  const data = calculateSalary();
+
+  document.getElementById("homeName")
+    .textContent = profile.name || "Worker";
+
+  document.getElementById("homeCompany")
+    .textContent =
+      profile.company ||
+      "Apni attendance aur salary ka hisab rakhein";
+
+  document.getElementById("companyDisplay")
+    .textContent = profile.company || "-";
+
+  document.getElementById("rateDisplay")
+    .textContent = formatMoney(profile.rate);
+
+  document.getElementById("daysDisplay")
+    .textContent = data.totalDays;
+
+  document.getElementById("halfDisplay")
+    .textContent = data.half;
+
+  document.getElementById("salaryDisplay")
+    .textContent = formatMoney(data.salary);
+
+  document.getElementById("salaryDays")
+    .textContent =
+      data.totalDays + " attendance days";
+
+  document.getElementById("attendanceRate")
+    .textContent = formatMoney(profile.rate);
+
+  document.getElementById("salaryRate")
+    .value = profile.rate || "";
+
+  document.getElementById("salaryPresent")
+    .textContent = data.present;
+
+  document.getElementById("salaryHalf")
+    .textContent = data.half;
+
+  document.getElementById("salaryAbsent")
+    .textContent = data.absent;
+
+  document.getElementById("salaryTotal")
+    .textContent = data.totalDays;
+
+  document.getElementById("salaryPageTotal")
+    .textContent = formatMoney(data.salary);
+
+  document.getElementById("workerName")
+    .value = profile.name;
+
+  document.getElementById("workerCompany")
+    .value = profile.company;
+
+  document.getElementById("workerRate")
+    .value = profile.rate || "";
+
+  document.getElementById("joiningDate")
+    .value = profile.joining || "";
+
+  document.getElementById("profileName")
+    .textContent = profile.name || "-";
+
+  document.getElementById("profileCompany")
+    .textContent = profile.company || "-";
+
+  document.getElementById("profileRate")
+    .textContent = formatMoney(profile.rate);
+
+  renderHistory();
+
+}
+
+
+function renderHistory(){
+
+  const list =
+    document.getElementById("historyList");
+
+  if(attendance.length===0){
+
+    list.innerHTML =
+      `<div class="empty">
+        अभी कोई attendance नहीं है।
+       </div>`;
